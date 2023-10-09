@@ -17,9 +17,9 @@ function meuEscopo() {
 
         form.reset();
 
-        resultado.innerHTML += `<p>Nome:${nome}; Sobrenome:${sobrenome}; Peso:${peso}; Altura${altura}</p>`
-
-       
+        resultado.innerHTML += `<div class="dados-container"<h2>${nome} ${sobrenome}</h2>
+                                <p>Peso:${peso}</p>
+                                <p>Altura${altura}</p></div>`
     };
 
     form.addEventListener('submit', recebeEventoForm);
