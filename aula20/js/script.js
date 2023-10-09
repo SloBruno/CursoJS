@@ -17,11 +17,16 @@ function meuEscopo() {
 
         form.reset();
 
-        resultado.innerHTML += `<div class="dados-container"<h2>${nome} ${sobrenome}</h2>
-                                <p>Peso:${peso}</p>
-                                <p>Altura${altura}</p></div>`
-    };
 
+
+        resultado.innerHTML += `
+                                <div class="dadoscontainer">
+                                <h2 class="yes">${nome} ${sobrenome}</h2>
+                                <p>Peso:${peso}</p>
+                                <p>Altura${altura}</p>
+                                <p>IMC:${(peso / (altura * altura)).toFixed(2)}
+                                </div>`};
+    
     form.addEventListener('submit', recebeEventoForm);
 }
 

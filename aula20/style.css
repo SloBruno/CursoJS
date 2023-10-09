@@ -41,10 +41,16 @@ input{
     border-radius: 3%;
     border: 1px solid black;
     background-color: white;
-    padding: 30px 20px;
     display: flex;
     flex-direction: column;
-    margin: 50px auto 100px auto;
+    align-items: center;
+    margin: 50px auto 50px auto;
+    width: 350px;
+}
+
+.form-container-2{
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 button{
@@ -60,12 +66,22 @@ button{
     margin: 25px auto;
 }
 
-.dados-container{
+.dadoscontainer{
+    color: black;
     border-radius: 3%;
     border: 1px solid black;
     background-color: white;
     display: flex;
-    margin-top: 50px;
-    margin-bottom: 100px;
+    flex-direction: column;
+    margin: 50px auto 20px auto;
+    width: 350px;
     
 }
+
+.dadoscontainer .yes {
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-align: center; 
+}
+
+
