@@ -7,12 +7,16 @@
 
 body{
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(130deg, #800080, rgb(51, 23, 135));
+    background: linear-gradient(130deg, #a801a8, rgb(55, 25, 148));
     color: rgb(255, 255, 255);
-    height: 100%;
+    height: auto;
     
 }
 
+#titulo{
+    margin-top: 30px;
+    font-size: 48px;
+}
 .container{
     min-width: 280px;
     max-width: 600px;
@@ -27,6 +31,7 @@ body{
     color: rgb(0, 0, 0);
 }
 input{
+    
     margin-bottom: 12px;
     margin-top: 5px;
     padding: 3px 15px;
@@ -78,8 +83,12 @@ button{
     
 }
 
+.dadoscontainer p{
+    line-height: 25px;
+}
+
 .dadoscontainer .yes {
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 5px;
     text-align: center; 
 }
