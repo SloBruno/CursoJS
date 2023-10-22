@@ -30,6 +30,7 @@ body{
 .p-form{
     color: rgb(0, 0, 0);
 }
+
 input{
     
     margin-bottom: 12px;
@@ -38,6 +39,7 @@ input{
     border-radius: 3px;
     border: 1px solid rgb(0, 0, 0);
     box-shadow: none;
+    text-indent: 1px;
     
 }
 
@@ -80,6 +82,7 @@ button{
     flex-direction: column;
     margin: 50px auto 20px auto;
     width: 350px;
+    padding: 8px;
     
 }
 

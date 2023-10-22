@@ -78,24 +78,31 @@ function NameOfTheMonth(monthNumber) {
 function formatHours(hour, minute, second) {
 
     const formatSecond = second<10 ? (`0${second}`) : second
-    const formathour = `${hour}:${minute}:${formatSecond}`;
-    return formathour;
+    const formatMinute = minute<10 ? (`0${minute}`) : minute
+    const formatHour = hour<10 ? (`0${hour}`) : hour
+    const formatFullHour = `${formatHour}:${formatMinute}:${formatSecond}`;
+    return formatFullHour;
 }
 
-const dayNumber = new Date().getDay();
-const monthNumber = new Date().getMonth();
-const hour = new Date().getHours();
-const minute = new Date().getMinutes();
-const second = new Date().getSeconds();
+let horario = document.querySelector('#horario');
 
-const dayWeek = nameOfTheDay(dayNumber);
-const date = new Date().getDate();
-const month = NameOfTheMonth(monthNumber);
-const year = new Date().getFullYear();
-const format = formatHours(hour, minute, second);
+function updateClock() {
+    let date = new Date();
+    const dayNumber = date.getDay();
+    const monthNumber = date.getMonth();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
 
-const formattedDate = `${dayWeek}, ${date} de ${month} de ${year}. ${format}`;
+    const dayWeek = nameOfTheDay(dayNumber);
+    const dayMonth = date.getDate();
+    const month = NameOfTheMonth(monthNumber);
+    const year = date.getFullYear();
+    const format = formatHours(hour, minute, second);
 
-const horario = document.querySelector('#horario')
+    const formattedDate = `${dayWeek}, ${dayMonth} de ${month} de ${year}. ${format}`;
 
-horario.innerHTML += `<p> ${formattedDate} </p> `
+    horario.innerHTML = `<p>${formattedDate}</p>`;
+}
+
+setInterval(updateClock, 1000);
