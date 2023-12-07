@@ -6,20 +6,31 @@ function criaLi() {
     return document.createElement('li');
 }
 
-function criaBotaoApagar(li) {
+function criaBotao(li) {
     li.innerText += '   ';
     const botaoApagar = document.createElement('button');
+    const botaoEditar = document.createElement('button');
     botaoApagar.innerText = 'apagar';
+    botaoEditar.innerText = 'editar';
     botaoApagar.setAttribute('class', 'apagar');
+    botaoEditar.setAttribute('class', 'editar');
     li.appendChild(botaoApagar);
+    li.appendChild(botaoEditar);
 }
+
+
+
 
 function criaTarefa(textoInput) {
     const li = criaLi();
+    li.setAttribute('data-texto', textoInput);
     li.innerText = textoInput;
     tarefas.appendChild(li);
-    LimpaInput();
-    criaBotaoApagar(li);
+    LimpaInput(li);
+    let botoes = li.querySelector('.editar');
+    console.log(botoes);
+    criaBotao(li);    
+    console.log(li.classList.value);    
     salvarTarefas();
 }
 
@@ -49,19 +60,29 @@ document.addEventListener('click', function (e) {
     }
 });
 
+document.addEventListener('click', function(e){
+    const el = e.target;
+
+    if(el.classList.contains('editar')){
+        console.log('Editar')
+    }
+})
+
 function salvarTarefas() {
     const liTarefas = tarefas.querySelectorAll('li');
     const ListaDeTarefas = [];
 
     for (let tarefa of liTarefas) {
         let tarefaTexto = tarefa.innerText;
-        tarefaTexto = tarefaTexto.replace('apagar', '').trim();
+        tarefa.getAttribute('data-texto');
         ListaDeTarefas.push(tarefaTexto);
     }
 
     const tarefasJSON = JSON.stringify(ListaDeTarefas);
     localStorage.setItem('tarefas', tarefasJSON);
 }
+
+
 
 function adicionaTarefasSalvas() {
     const tarefasSalvas = localStorage.getItem('tarefas');
@@ -71,5 +92,7 @@ function adicionaTarefasSalvas() {
         criaTarefa(tarefa);
     }
 }
+
+
 
 adicionaTarefasSalvas();

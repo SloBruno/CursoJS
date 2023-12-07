@@ -33,6 +33,7 @@ function Reset() {
     relogio.innerHTML = GetTimeSeconds(segundos);
 }
 
+
 iniciar.addEventListener('click', function (event) {
     Start();
 });
